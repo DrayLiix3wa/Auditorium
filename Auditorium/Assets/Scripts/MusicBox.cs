@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MusicBox : MonoBehaviour
@@ -8,11 +10,15 @@ public class MusicBox : MonoBehaviour
     public Color _offColor;
     public Color _onColor;
     public SpriteRenderer[] _bars;
-
+    public float _volumePlus = 0.01f;
+    public float _volumeMinus = 1f;
+    private float chrono = 0f;
+    public float waitInterval = 1f;
+    private bool particleEnter;
     
     void Start()
     {
-        
+        _audioSource.volume = 0f;
     }
 
     void Update()
@@ -29,7 +35,32 @@ public class MusicBox : MonoBehaviour
             {
                 _bars[i].color = _offColor;
             }
-
         }
+
+        if (particleEnter)
+        {
+            chrono += Time.deltaTime;
+            if (chrono > waitInterval)
+            {
+                particleEnter = false;
+                chrono = 0f;
+            }
+            else
+            {
+                if (!particleEnter)
+                {
+                    _audioSource.volume -= _volumeMinus * Time.deltaTime;
+                }
+            }
+        }
+    }
+
+    public bool isActive;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        particleEnter = true;
+        chrono = 0;
+          
+        _audioSource.volume += _volumePlus;
     }
 }
