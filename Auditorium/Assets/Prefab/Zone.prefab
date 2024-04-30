@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2421426018852940868}
   m_Layer: 0
   m_Name: Zone
-  m_TagString: Untagged
+  m_TagString: OutterZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 8142496614476034051}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: CenterZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,6 +367,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.2990361, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.2062685

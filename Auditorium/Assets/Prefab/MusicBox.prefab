@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5130339271278226649}
   - component: {fileID: 5004320818447881345}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Bars (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -131,6 +131,10 @@ GameObject:
   - component: {fileID: 8349336876582701819}
   - component: {fileID: 9170355839174903474}
   - component: {fileID: 1460664771254947199}
+  - component: {fileID: 97608933292313076}
+  - component: {fileID: 6105146707369031506}
+  - component: {fileID: 179950999916313845}
+  - component: {fileID: 8350497537730484477}
   m_Layer: 0
   m_Name: MusicBox
   m_TagString: Untagged
@@ -164,11 +168,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bf192a2f271cd4227864f8d29b206645, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -284,7 +288,103 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
+--- !u!114 &97608933292313076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6450597199076645175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5cdcba3ce60984f99d1ad6ee9e7f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 9170355839174903474}
+  _offColor: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  _onColor: {r: 1, g: 0.20975389, b: 0, a: 1}
+  _bars:
+  - {fileID: 6962740823764583864}
+  - {fileID: 8824046985964887066}
+  - {fileID: 8718969617268224994}
+  - {fileID: 5004320818447881345}
+  - {fileID: 6680862847308795403}
+  _volumePlus: 0.01
+  _volumeMinus: 1
+  waitInterval: 1
+--- !u!114 &6105146707369031506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6450597199076645175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5cdcba3ce60984f99d1ad6ee9e7f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 9170355839174903474}
+  _offColor: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  _onColor: {r: 1, g: 0.20975389, b: 0, a: 1}
+  _bars:
+  - {fileID: 6962740823764583864}
+  - {fileID: 8824046985964887066}
+  - {fileID: 8718969617268224994}
+  - {fileID: 5004320818447881345}
+  - {fileID: 6680862847308795403}
+  _volumePlus: 0.01
+  _volumeMinus: 1
+  waitInterval: 1
+--- !u!114 &179950999916313845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6450597199076645175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5cdcba3ce60984f99d1ad6ee9e7f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 9170355839174903474}
+  _offColor: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  _onColor: {r: 1, g: 0.20975389, b: 0, a: 1}
+  _bars:
+  - {fileID: 6962740823764583864}
+  - {fileID: 8824046985964887066}
+  - {fileID: 8718969617268224994}
+  - {fileID: 5004320818447881345}
+  - {fileID: 6680862847308795403}
+  _volumePlus: 0.01
+  _volumeMinus: 1
+  waitInterval: 1
+--- !u!114 &8350497537730484477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6450597199076645175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5cdcba3ce60984f99d1ad6ee9e7f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 9170355839174903474}
+  _offColor: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
+  _onColor: {r: 1, g: 0.20975389, b: 0, a: 1}
+  _bars:
+  - {fileID: 6962740823764583864}
+  - {fileID: 8824046985964887066}
+  - {fileID: 8718969617268224994}
+  - {fileID: 5004320818447881345}
+  - {fileID: 6680862847308795403}
+  _volumePlus: 0.01
+  _volumeMinus: 1
+  waitInterval: 1
 --- !u!1 &6930203237864151818
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +396,7 @@ GameObject:
   - component: {fileID: 3832426925535213822}
   - component: {fileID: 6680862847308795403}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +459,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -380,7 +480,7 @@ GameObject:
   - component: {fileID: 7066759087525908582}
   - component: {fileID: 6962740823764583864}
   m_Layer: 0
-  m_Name: Square (4)
+  m_Name: Bars (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,7 +543,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -464,7 +564,7 @@ GameObject:
   - component: {fileID: 3969619990420029350}
   - component: {fileID: 8718969617268224994}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: Bars (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +627,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -548,7 +648,7 @@ GameObject:
   - component: {fileID: 6403237614314118005}
   - component: {fileID: 8824046985964887066}
   m_Layer: 0
-  m_Name: Square (3)
+  m_Name: Bars (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -611,7 +711,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9411765, g: 0.9411765, b: 0.9411765, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
