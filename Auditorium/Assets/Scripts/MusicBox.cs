@@ -14,7 +14,7 @@ public class MusicBox : MonoBehaviour
     public float _volumeMinus = 1f;
     private float chrono = 0f;
     public float waitInterval = 1f;
-    private bool particleEnter;
+    private bool particleEnter = false;
     
     void Start()
     {
@@ -23,7 +23,7 @@ public class MusicBox : MonoBehaviour
 
     void Update()
     {
-        for ( int i = 0; i < _bars.Length; i++ )
+        for (int i = 0; i < _bars.Length; i++)
         {
             float seuil = (float)i / (float)_bars.Length;
 
@@ -45,22 +45,27 @@ public class MusicBox : MonoBehaviour
                 particleEnter = false;
                 chrono = 0f;
             }
-            else
+        }
+        else
+        {
+
+            if (!particleEnter)
             {
-                if (!particleEnter)
-                {
-                    _audioSource.volume -= _volumeMinus * Time.deltaTime;
-                }
+                _audioSource.volume -= _volumeMinus * Time.deltaTime;
             }
         }
     }
 
-    public bool isActive;
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        particleEnter = true;
-        chrono = 0;
-          
-        _audioSource.volume += _volumePlus;
+        {
+
+            if (collision.CompareTag("Particule"))
+            {
+                particleEnter = true;
+                chrono = 0f;
+
+                _audioSource.volume += _volumePlus;
+            }
+
+        }
     }
-}
