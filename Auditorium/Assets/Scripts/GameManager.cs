@@ -5,43 +5,52 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] _musicBoxes;
-    private bool win;
+
+    public float winDuration = 2f;
+    public AudioSource[] _musicBoxes;
     private float _chrono = 0f;
-    public float timeForWin = 5f;
-    public UnityEvent OnWin = new UnityEvent();
+
+    private bool _allMaxVolume = true;
+
+    public UnityEvent NextLevelPanel = new UnityEvent();
 
     void Start()
     {
-        _musicBoxes = GameObject.FindGameObjectsWithTag("MusicBox");
+        GameObject[] boxes = GameObject.FindGameObjectsWithTag("MusicBox");
+
+        _musicBoxes = new AudioSource[boxes.Length];
+
+        for (int i = 0; i < boxes.Length; i++)
+        {
+            _musicBoxes[i] = boxes[i].GetComponent<AudioSource>();
+        }
     }
 
     void Update()
     {
-        win = true;
-        
-        foreach (var item in _musicBoxes)
+        _allMaxVolume = true;
+
+        foreach (AudioSource box in _musicBoxes)
         {
-            if(item.GetComponent<AudioSource>().volume != 1f)
+            if (box.volume < 1f)
             {
-                win = false;
+                _allMaxVolume = false;
                 break;
             }
         }
 
-        if (win)
+        if (_allMaxVolume)
         {
             _chrono += Time.deltaTime;
-
-            if (_chrono < timeForWin)
-            {
-                OnWin.Invoke();
-                Debug.Log("Gagné");
-            }
         }
         else
         {
             _chrono = 0f;
+        }
+
+        if (_chrono >= winDuration)
+        {
+            NextLevelPanel.Invoke();
         }
     }
 }

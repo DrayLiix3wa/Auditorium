@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     private float _chrono = 0f;
     private bool canSpawn = true;
     public GameObject _particlePrefab;
+    public float spawnSpeed = 10f;
     
     void Update()
     {
@@ -16,8 +17,10 @@ public class Spawner : MonoBehaviour
         if (canSpawn)
         {
             Vector2 spawnPosition = (Vector2)transform.position + Random.insideUnitCircle * spawnRadius;
-            GameObject particle = Instantiate(_particlePrefab, spawnPosition, Quaternion.identity);
-            particle.GetComponent<Rigidbody2D>().velocity = transform.right * 10f;
+            GameObject particle = ObjectPool.Get();
+            particle.SetActive(true);
+            particle.transform.position = spawnPosition;
+            particle.GetComponent<Rigidbody2D>().velocity = transform.right * spawnSpeed;
             canSpawn = false;
         }
         
